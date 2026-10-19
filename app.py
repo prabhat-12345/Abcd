@@ -21,7 +21,7 @@ st.markdown("""
         100% { background: linear-gradient(135deg, #090214 0%, #170529 100%); }
     }
     
-    /* ⚡ Neon light border animations for photo frame & elements */
+    /* ⚡ Neon light border animations for photo frame */
     @keyframes neonBorderGlow {
         0% { border-color: #ec4899; box-shadow: 0 0 20px rgba(236, 72, 153, 0.6); }
         50% { border-color: #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.7); }
@@ -35,7 +35,7 @@ st.markdown("""
         overflow-y: auto !important;
     }
     
-    /* Elegant Frame for Permanent Photo & Video Room */
+    /* Elegant Frame for Permanent Photo */
     .photo-frame {
         border: 4px solid #ec4899;
         border-radius: 25px;
@@ -45,15 +45,6 @@ st.markdown("""
         margin-top: 20px;
         margin-bottom: 30px;
         text-align: center;
-    }
-
-    .video-container {
-        border: 3px solid #38bdf8;
-        border-radius: 20px;
-        padding: 8px;
-        background: rgba(10, 4, 18, 0.8);
-        box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-        margin: 25px 0;
     }
     
     .cyber-title {
@@ -104,30 +95,23 @@ st.markdown("""
         to { text-shadow: 0 0 15px #fff, 0 0 30px #ff73b9, 0 0 55px #ff73b9, 0 0 70px #70d5ff; }
     }
 
-    /* Streamlit Custom Buttons */
+    /* Streamlit Custom Buttons for Media Control */
     .stButton>button {
+        background: linear-gradient(90deg, #ec4899, #f43f5e) !important;
         color: white !important;
         font-weight: bold !important;
         border: none !important;
         border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4) !important;
         transition: 0.3s !important;
     }
-    
-    div.stButton:nth-of-type(1) > button {
-        background: linear-gradient(90deg, #ec4899, #f43f5e) !important;
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4) !important;
-    }
-    
-    div.stButton:nth-of-type(2) > button {
-        background: linear-gradient(90deg, #38bdf8, #a855f7) !important;
-        box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4) !important;
-    }
-    
     .stButton>button:hover {
         transform: scale(1.02) !important;
         opacity: 0.95;
+        box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6) !important;
     }
 
+    /* Hide standard top header bars */
     .stDeployButton, footer, header {
         visibility: hidden !important;
     }
@@ -143,26 +127,14 @@ st.markdown('<div style="text-align: center; font-size: 2rem; margin-bottom: 5px
 st.markdown('<h1 class="cyber-title">A CELEBRATION OF EXCELLENCE</h1>', unsafe_allow_html=True)
 st.markdown('<p class="gold-accent">🌹 An Unforgettable Chapter of Life & Memories 🌹</p>', unsafe_allow_html=True)
 
-# 5. DUAL AUDIO BUTTON MATRIX
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("🎂 Play Birthday Song", use_container_width=True):
-        try:
-            with open("nastelbom-happy-birthday-49526.mp3", "rb") as f:
-                audio_bytes = f.read()
-            st.audio(audio_bytes, format="audio/mp3", autoplay=True)
-        except FileNotFoundError:
-            st.error("⚠️ Birthday audio file missing on GitHub.")
-
-with col2:
-    if st.button("❤️ Play Romantic Song", use_container_width=True):
-        try:
-            with open("romantic.mp3", "rb") as f:
-                audio_bytes = f.read()
-            st.audio(audio_bytes, format="audio/mp3", autoplay=True)
-        except FileNotFoundError:
-            st.error("⚠️ Please upload 'romantic.mp3' to your GitHub repository.")
+# 5. 100% WORKING SINGLE AUDIO BUTTON ENGINE
+if st.button("🎵 Click Here to Play Birthday Song 🎵", use_container_width=True):
+    try:
+        with open("nastelbom-happy-birthday-49526.mp3", "rb") as f:
+            audio_bytes = f.read()
+        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+    except FileNotFoundError:
+        st.error("⚠️ Birthday audio file missing on GitHub.")
 
 # 📸 PHOTO DISPLAY FRAME BLOCK
 st.markdown('<div class="photo-frame">', unsafe_allow_html=True)
@@ -177,17 +149,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Dream Focused Cursive Quote ---
 st.markdown('<p class="premium-quote">"The magic happens when a brilliant intellect dares to dream. Keep shining, because the stars are waiting for you."</p>', unsafe_allow_html=True)
 
-# 🎥 🚂 FIXED VIDEO ROOM: STATION SONG VIDEO SECTION
-st.markdown('<div class="video-container">', unsafe_allow_html=True)
-st.markdown('<p style="color:#38bdf8; font-weight:bold; font-family:\'Montserrat\'; text-align:center; margin-bottom:10px;">🎥 🚂 Station Memory Video Room</p>', unsafe_allow_html=True)
-try:
-    with open("station_video.mp4", "rb") as video_file:
-        video_bytes = video_file.read()
-    st.video(video_bytes, format="video/mp4", autoplay=False)
-except FileNotFoundError:
-    st.markdown("<p style='color:#fbbf24; font-size:0.95rem; text-align:center;'>💡 Tip: Apne video jisme station gaana add hai use GitHub repo me <b>'station_video.mp4'</b> naam se daal do, wo yahan automatic player ke sath video format me fit ho jayega!</p>", unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
-
 st.markdown('<hr style="border-color: rgba(56, 189, 248, 0.4); margin: 35px 0;">', unsafe_allow_html=True)
 
 # --- Emotional, Deep Friendship & Full Separation Pain Narrative Block ---
@@ -196,7 +157,6 @@ st.markdown("""
     Teaching you for the last <span style="color: #fbbf24; font-weight: 700;">2 beautiful years</span> has been the most profound privilege of my life. 
     What started as a journey of mentor and student slowly grew into a <span style="color: #38bdf8; font-weight: 700;">beautiful, irreplaceable friendship</span>. 
     True friendship is not about being inseparable, it is about being separated and knowing nothing changes. 
-    A single loyal friend is worth ten thousand relatives, and having you as a friend was the greatest gift these years gave me. 
     Every conversation, every shared goal, and every milestone we crossed together has made these two years completely memorable.
     <br><br>
     Somewhere between guiding your brilliant intellect and listening to your dreams, my heart quietly fell for the wonderful soul you are. 
