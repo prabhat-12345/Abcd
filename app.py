@@ -21,7 +21,7 @@ st.markdown("""
         100% { background: linear-gradient(135deg, #090214 0%, #170529 100%); }
     }
     
-    /* ⚡ Neon light border爴nimations for photo frame */
+    /* ⚡ Neon light border animations for photo frame */
     @keyframes neonBorderGlow {
         0% { border-color: #ec4899; box-shadow: 0 0 20px rgba(236, 72, 153, 0.6); }
         50% { border-color: #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.7); }
@@ -78,17 +78,15 @@ st.markdown("""
         text-align: center;
     }
     
-    /* 💎 FIXED: CLEAN STYLE WITH HIGH-INTENSITY DYNAMIC NEON GLOW */
+    /* BEAUTIFUL ALIGNED NEON GLOW FOR HAPPY BIRTHDAY ANSHIKA */
     .slow-reveal {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 800;
-        font-size: 2.4rem;
+        font-family: 'Alex Brush', cursive;
+        font-weight: 700;
+        font-size: 3.5rem;
         color: #ffffff !important;
         margin-top: 45px;
         margin-bottom: 35px;
         text-align: center;
-        /* Balanced and readable character spacing */
-        letter-spacing: 2px; 
         animation: neonPulse 2s ease-in-out infinite alternate;
     }
 
@@ -97,19 +95,30 @@ st.markdown("""
         to { text-shadow: 0 0 15px #fff, 0 0 30px #ff73b9, 0 0 55px #ff73b9, 0 0 70px #70d5ff; }
     }
 
-    /* Streamlit Custom Primary Buttons */
+    /* Streamlit Custom Primary Buttons for Media Control */
     .stButton>button {
-        background: linear-gradient(90deg, #ec4899, #38bdf8) !important;
         color: white !important;
         font-weight: bold !important;
         border: none !important;
         border-radius: 12px !important;
-        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4) !important;
         transition: 0.3s !important;
     }
+    
+    /* Custom Styling for Birthday Button */
+    div.stButton:nth-of-type(1) > button {
+        background: linear-gradient(90deg, #ec4899, #f43f5e) !important;
+        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4) !important;
+    }
+    
+    /* Custom Styling for Romantic Button */
+    div.stButton:nth-of-type(2) > button {
+        background: linear-gradient(90deg, #38bdf8, #a855f7) !important;
+        box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4) !important;
+    }
+    
     .stButton>button:hover {
         transform: scale(1.02) !important;
-        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6) !important;
+        opacity: 0.95;
     }
 
     /* Hide standard top header bars */
@@ -128,14 +137,26 @@ st.markdown('<div style="text-align: center; font-size: 2rem; margin-bottom: 5px
 st.markdown('<h1 class="cyber-title">A CELEBRATION OF EXCELLENCE</h1>', unsafe_allow_html=True)
 st.markdown('<p class="gold-accent">🌹 An Unforgettable Chapter of Life & Memories 🌹</p>', unsafe_allow_html=True)
 
-# 5. 100% WORKING AUDIO BUTTON ENGINE
-if st.button("🎵 Click Here to Play Birthday Song 🎵", use_container_width=True):
-    try:
-        with open("nastelbom-happy-birthday-49526.mp3", "rb") as f:
-            audio_bytes = f.read()
-        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
-    except FileNotFoundError:
-        st.error("⚠️ File Read Error: Check if audio file name matches on GitHub.")
+# 5. DUAL AUDIO BUTTON MATRIX
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("🎂 Play Birthday Song", use_container_width=True):
+        try:
+            with open("nastelbom-happy-birthday-49526.mp3", "rb") as f:
+                audio_bytes = f.read()
+            st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+        except FileNotFoundError:
+            st.error("⚠️ Birthday audio file missing on GitHub.")
+
+with col2:
+    if st.button("❤️ Play Romantic Song", use_container_width=True):
+        try:
+            with open("romantic.mp3", "rb") as f:
+                audio_bytes = f.read()
+            st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+        except FileNotFoundError:
+            st.error("⚠️ Please upload 'romantic.mp3' to your GitHub repository.")
 
 # 📸 PHOTO DISPLAY FRAME BLOCK
 st.markdown('<div class="photo-frame">', unsafe_allow_html=True)
@@ -152,25 +173,27 @@ st.markdown('<p class="premium-quote">"The magic happens when a brilliant intell
 
 st.markdown('<hr style="border-color: rgba(56, 189, 248, 0.4); margin: 35px 0;">', unsafe_allow_html=True)
 
-# --- 2 Years Journey, Deep Friendship & Emotional Separation Narrative Block ---
+# --- Emotional, Deep Friendship & Full Separation Pain Narrative Block ---
 st.markdown("""
 <div style="font-family: 'Montserrat', sans-serif; font-size: 1.15rem; line-height: 1.9; text-align: center; color: #ffffff; padding: 0 10px;">
     Teaching you for the last <span style="color: #fbbf24; font-weight: 700;">2 beautiful years</span> has been the most profound privilege of my life. 
     What started as a journey of mentor and student slowly grew into a <span style="color: #38bdf8; font-weight: 700;">beautiful, irreplaceable friendship</span>. 
     True friendship is not about being inseparable, it is about being separated and knowing nothing changes. 
+    A single loyal friend is worth ten thousand relatives, and having you as a friend was the greatest gift these years gave me. 
     Every conversation, every shared goal, and every milestone we crossed together has made these two years completely memorable.
     <br><br>
     Somewhere between guiding your brilliant intellect and listening to your dreams, my heart quietly fell for the wonderful soul you are. 
     You became the rhythm to my silence and the secret sparkle in my ordinary days. 
     <br><br>
-    But life took a turn, and after those two beautiful years, our paths branched apart. Your going away and the distance between us caused a <span style="color: #ec4899; font-weight: 700;">profound emotional and psychological weight</span> in my life—a silent damage that words can rarely capture. The silence left behind by your absence became the heaviest thing to carry.
+    But life took a turn, and after those two beautiful years, our paths branched apart. Your going away and our separation was incredibly painful—it felt like a devastating emotional collapse that left a massive psychological damage in my life during those days. 
+    <span style="color: #38bdf8; font-weight: 700;">Even today, whenever I look back at those fleeting moments and revisit our gone by yesterday, that very memory reopens the depth of that psychological pain. It makes me relive the exact weight of that damage, leaving my heart deeply heavy and melancholic.</span> The silence left behind by your absence became an unbearable weight to carry, marking a phase of deep emotional struggle.
     <br><br>
     Yet, no matter how far apart we are or how much it hurts, your potential remains limitless. Wherever your dreams take you, remember that you have someone who always believes in you, cares for you, and holds your memory close in every single thought.
 </div>
 """, unsafe_allow_html=True)
 
-# 🚀 FIXED NEON TEXT AT THE ABSOLUTE BOTTOM (Clean and Continuous Font with Double Glow)
-st.markdown('<div class="slow-reveal">Happy Birthday Anshika 🎉</div>', unsafe_allow_html=True)
+# 🚀 FIXED CONTINUOUS NEON TEXT AT THE ABSOLUTE BOTTOM
+st.markdown('<div class="slow-reveal">Happy Birthday Anshika</div>', unsafe_allow_html=True)
 
 # Footer Layout
 st.markdown("<br>", unsafe_allow_html=True)
