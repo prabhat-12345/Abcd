@@ -18,19 +18,19 @@ if st.button("🎈 Surprise Dekho Aur Song Suno! 🎈", use_container_width=True
     # 1. Screen par balloons udane ke liye
     st.balloons()
     
-    # 2. Gaana play karne ke liye (File ka naam 'birthday.mp3' rakha hai)
+    # 2. Gaana play karne ke liye (Aapki file ka exact naam yahan daal diya hai)
     try:
-        audio_file = open("birthday.mp3", "rb")
+        audio_file = open("nastelbom-happy-birthday-49526.mp3", "rb")
         audio_bytes = audio_file.read()
         
         st.audio(audio_bytes, format="audio/mp3", autoplay=True)
         st.success("🎶 Baar baar din ye aaye... Gaana baj raha hai! Enjoy! 🥳")
         
     except FileNotFoundError:
-        st.error("⚠️ Error: 'birthday.mp3' file nahi mili! Phele GitHub pe 'birthday.mp3' naam se song upload karo bhaiya!")
+        st.error("⚠️ Error: Code me naam sahi hai, par check karo GitHub pe spelling yahi hai na?")
 
 # Card jaisa look dene ke liye ek chota sa container
 with st.container():
     st.markdown("---")
     st.image("https://unsplash.com", caption="Have a Blast! 🎁")
-  
+    
