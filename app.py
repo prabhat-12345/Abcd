@@ -1,4 +1,4 @@
-import streamlit st
+import streamlit as st
 import base64
 
 # 1. Custom High-End Page Setup
