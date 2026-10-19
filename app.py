@@ -1,91 +1,86 @@
 import streamlit as st
 import base64
-import time
 
-# 1. Page setting aur premium metadata configuration
+# 1. Page Configuration
 st.set_page_config(
-    page_title="For Anshika | A Premium Token of Love", 
+    page_title="For Anshika", 
     page_icon="💖", 
     layout="centered"
 )
 
-# 2. Styling Core - Custom Premium CSS for Animations & Glassmorphism Aesthetics
+# 2. Perfect CSS (Fixing colors and background visibility)
 st.markdown("""
 <style>
-    /* Premium font style aur theme gradients */
     @import url('https://googleapis.com');
     
+    /* Strong soft gradient background */
     .stApp {
-        background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 50%, #fbe7ef 100%);
+        background: linear-gradient(135deg, #ffeef4 0%, #ffd6e8 100%) !important;
     }
     
-    /* Elegant soft pink glassmorphism card structure */
+    /* Premium glass card with distinct border */
     .premium-card {
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.85);
         border-radius: 20px;
-        border: 1px solid rgba(255, 182, 193, 0.4);
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(228, 126, 153, 0.15);
+        border: 2px solid #e86d8a;
+        padding: 25px;
+        box-shadow: 0 10px 25px rgba(232, 109, 138, 0.2);
         text-align: center;
-        margin-top: 20px;
-        animation: fadeIn 2s ease-in-out;
+        margin-top: 15px;
     }
     
-    /* Smooth CSS animations */
-    @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(15px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Luxury typography styling */
+    /* CRITICAL FIX: Dark striking text colors for visibility */
     .main-title {
         font-family: 'Dancing Script', cursive;
-        color: #d14770;
+        color: #911b43 !important; /* Deep Crimson/Maroon */
         font-size: 3.5rem;
         font-weight: 700;
         margin-bottom: 5px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        text-align: center;
     }
     
     .sub-title {
         font-family: 'Montserrat', sans-serif;
-        color: #7d6b70;
+        color: #5c474e !important; /* Dark Charcoal Pink */
         font-size: 1.1rem;
         letter-spacing: 2px;
         text-transform: uppercase;
-        font-weight: 300;
-        margin-bottom: 25px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 20px;
     }
     
     .quote-box {
         font-family: 'Montserrat', sans-serif;
         font-style: italic;
-        color: #614d52;
+        color: #2b1f23 !important; /* Deep Dark for clean reading */
         font-size: 1.2rem;
-        border-left: 3px solid #e86d8a;
+        border-left: 4px solid #911b43;
         padding-left: 15px;
-        margin: 25px 0;
+        margin: 20px 0;
         text-align: left;
+        line-height: 1.6;
     }
-    
-    /* Floating animated hearts decoration */
-    .floating-hearts {
-        color: #e86d8a;
-        font-size: 1.5rem;
-        animation: float 3s ease-in-out infinite;
+
+    /* Beautiful animated Pure CSS Heart (No broken image links) */
+    .heart-element {
+        font-size: 80px;
+        color: #d12857;
+        animation: heartbeat 1.2s infinite;
+        margin: 20px auto;
+        text-align: center;
     }
-    
-    @keyframes float {
-        0% { transform: translateY(0px) scale(1); }
-        50% { transform: translateY(-10px) scale(1.1); }
-        100% { transform: translateY(0px) scale(1); }
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        20% { transform: scale(1.25); }
+        40% { transform: scale(1); }
+        60% { transform: scale(1.15); }
+        100% { transform: scale(1); }
     }
 </style>
 """, unsafe_allow_html=True)
 
-# 3. Dynamic background streaming engine for premium romantic experience
+# 3. Automatic Audio Function
 def inject_premium_audio(file_path):
     try:
         with open(file_path, "rb") as f:
@@ -98,43 +93,35 @@ def inject_premium_audio(file_path):
                 """
             st.markdown(audio_html, unsafe_allow_html=True)
     except FileNotFoundError:
-        st.info("💡 Sound system initialization: Song file can be pushed directly to GitHub repository.")
+        pass
 
-# Continuous loop audio execution
 inject_premium_audio("nastelbom-happy-birthday-49526.mp3")
 
-# 4. Premium Interface Construction
-st.markdown('<div class="floating-hearts" style="text-align: center;">💖 ✨ 🕊️</div>', unsafe_allow_html=True)
+# 4. Content Render
+st.balloons() # Automatic balloons on start
+
+st.markdown('<div style="text-align: center; font-size: 2rem;">💖 ✨ 🕊️</div>', unsafe_allow_html=True)
 st.markdown('<h1 class="main-title">Beautiful Anshika</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">A Journey of Moments & Love</p>', unsafe_allow_html=True)
 
-# Interactive Fluid Layout: Dynamic Content Controls
-st.sidebar.markdown("### 🛠️ Premium Control Studio")
-st.sidebar.write("App ke layers control karein:")
-
-# Continuous Animation trigger toggles
-enable_hearts = st.sidebar.checkbox("Balloons/Hearts Animation Active", value=True)
-if enable_hearts:
-    st.balloons()
-
-# Dynamic Multi-image Processing Block (Uploader Matrix)
+# Sidebar setup for picture upload
+st.sidebar.markdown("### 🛠️ Content Controls")
 uploaded_file = st.sidebar.file_uploader(
-    "Anshika ki premium pic upload karein 👇", 
+    "Anshika ki photo yahan se upload karein 👇", 
     type=["jpg", "jpeg", "png", "webp"]
 )
 
-# Render main canvas interface
 st.markdown('<div class="premium-card">', unsafe_allow_html=True)
 
-# Structural logic based on image upload status
+# Agar user photo upload karega toh photo dikhegi, nahi toh dhadakta hua dil dikhega
 if uploaded_file is not None:
-    # Display custom high-fidelity upload with styled borders
-    st.image(uploaded_file, use_container_width=True, caption="The Perfect View ✨")
+    st.image(uploaded_file, use_container_width=True, caption="Elegance Personified ✨")
 else:
-    # High aesthetic fallback template image
-    st.image("https://unsplash.com", use_container_width=True, caption="In the middle of pristine elegance ✨")
+    # Safe Animated fallback
+    st.markdown('<div class="heart-element">❤️</div>', unsafe_allow_html=True)
+    st.caption("ℹ️ Use Sidebar to upload Anshika's picture")
 
-# Fluid quote curation framework
+# English Quotes Text Box
 st.markdown("""
 <div class="quote-box">
     "In the arithmetic of love, one plus one equals everything, and two minus one equals nothing. 
@@ -144,10 +131,10 @@ st.markdown("""
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# 5. Aesthetic Footer Layer
+# Footer
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown(
-    '<div style="text-align: center; color: #a39296; font-family: \'Montserrat\', sans-serif; font-size: 0.85rem; letter-spacing: 1px;">'
+    '<div style="text-align: center; color: #785a63; font-family: \'Montserrat\', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">'
     'DESIGNED WITH PREMIUM CODE STACKS FOR ANSHIKA'
     '</div>', 
     unsafe_allow_html=True
