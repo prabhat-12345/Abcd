@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. Advanced Multi-Color Light Changing Background & Ultra Visible Fonts (CSS Injector)
+# 2. Advanced Multi-Color Light Changing Background & Fonts (CSS Injector)
 st.markdown("""
 <style>
     @import url('https://googleapis.com');
@@ -32,7 +32,7 @@ st.markdown("""
         animation: romanticGlowBackground 12s ease-in-out infinite;
         color: #ffffff !important;
         background-size: 400% 400%;
-        overflow-y: auto !important; /* Force standard scrolling completely free */
+        overflow-y: auto !important; /* Page scrolling free tracking */
     }
     
     /* Elegant Frame for Permanent Photo */
@@ -67,7 +67,6 @@ st.markdown("""
         text-align: center;
     }
     
-    /* Dynamic Quotes Layout */
     .premium-quote {
         font-family: 'Alex Brush', cursive;
         color: #ffd700 !important;
@@ -95,68 +94,39 @@ st.markdown("""
         font-weight: 800;
         font-size: 2rem;
         color: #ffffff !important;
-        text-shadow: 0 0 20px rgba(236, 72, 153, 0.9), 0 0 40px rgba(168, 85, 247, 0.7);
+        text-shadow: 0 0 20px rgba(236, 72, 153, 0.9), 0 0 40px rgba(168, 85, 247, 0.6);
         margin-top: 40px;
         margin-bottom: 30px;
         letter-spacing: 4px;
         text-align: center;
     }
 
-    /* Target Streamlit's internal audio player wrapper to remove dark blocks */
-    div[data-testid="stAudio"] {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-    
-    /* Hide default elements cleanly */
+    /* Hide standard top header bars */
     .stDeployButton, footer, header {
         visibility: hidden !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# 3. Clean Autoplay Execution Context (Fixes Screen Freeze)
-def play_system_audio(file_path):
-    try:
-        with open(file_path, "rb") as f:
-            data = f.read()
-            b64 = base64.b64encode(data).decode()
-            # Injected native standard audio player completely hidden
-            audio_html = f"""
-                <audio autoplay="true" loop="true" style="display:none;" id="bg-audio-engine">
-                <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-                </audio>
-                <script>
-                    window.addEventListener('click', function() {{
-                        var audio = document.getElementById('bg-audio-engine');
-                        if (audio) {{
-                            audio.play();
-                        }}
-                    }}, {{ once: true }});
-                    window.addEventListener('touchstart', function() {{
-                        var audio = document.getElementById('bg-audio-engine');
-                        if (audio) {{
-                            audio.play();
-                        }}
-                    }}, {{ once: true }});
-                </script>
-                """
-            st.markdown(audio_html, unsafe_allow_html=True)
-    except FileNotFoundError:
-        pass
-
-# Executing using your exact repository sound file
-play_system_audio("nastelbom-happy-birthday-49526.mp3")
-
-# 4. Premium Live FX Modules
+# 3. Premium Live FX Modules
 st.balloons()
 st.snow()
 
-# 5. Main Header Interface
+# 4. Main Header Interface
 st.markdown('<div style="text-align: center; font-size: 2rem; margin-bottom: 5px;">✨ 👑 ✨</div>', unsafe_allow_html=True)
 st.markdown('<h1 class="cyber-title">A CELEBRATION OF EXCELLENCE</h1>', unsafe_allow_html=True)
 st.markdown('<p class="gold-accent">🌹 Dedicated to an exceptional mind on her special day 🌹</p>', unsafe_allow_html=True)
+
+# 5. 100% WORKING AUDIO BUTTON ENGINE
+# Is tarike se browser kabhi bhi music ko block nahi kar payega
+if st.button("🎵 Click Here to Play Birthday Song 🎵", use_container_width=True):
+    try:
+        with open("nastelbom-happy-birthday-49526.mp3", "rb") as f:
+            audio_bytes = f.read()
+        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+        st.success("🎶 Gaana shuru ho gaya hai! Enjoy!")
+    except FileNotFoundError:
+        st.error("⚠️ File Read Error: Check if audio file name matches on GitHub.")
 
 # 📸 PHOTO DISPLAY FRAME BLOCK
 st.markdown('<div class="photo-frame">', unsafe_allow_html=True)
