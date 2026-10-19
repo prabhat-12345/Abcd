@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. Advanced Multi-Color Light Changing Background & Royal Fonts (CSS Injector)
+# 2. Advanced Multi-Color Light Changing Background & Royal Neon Fonts (CSS Injector)
 st.markdown("""
 <style>
     @import url('https://googleapis.com');
@@ -47,19 +47,6 @@ st.markdown("""
         text-align: center;
     }
     
-    /* 📖 ULTRA-PREMIUM LUXURY DIGITAL DIARY CARD CASING */
-    .premium-diary-block {
-        background: rgba(18, 8, 32, 0.75);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 2px solid rgba(251, 191, 36, 0.4);
-        border-radius: 25px;
-        padding: 45px 35px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(168, 85, 247, 0.2);
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-    
     .cyber-title {
         font-family: 'Montserrat', sans-serif;
         font-weight: 800;
@@ -80,14 +67,14 @@ st.markdown("""
         text-align: center;
     }
     
-    /* Dream Cursive Quotes Style Inside Diary */
+    /* Dream Cursive Quotes Style */
     .premium-quote {
         font-family: 'Alex Brush', cursive;
         color: #ffd700 !important;
-        font-size: 2.9rem;
+        font-size: 2.8rem;
         line-height: 1.4;
-        margin: 10px 0 25px 0;
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        margin: 30px 0 25px 0;
+        text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
         text-align: center;
     }
     
@@ -95,10 +82,10 @@ st.markdown("""
     .slow-reveal {
         font-family: 'Alex Brush', cursive;
         font-weight: 700;
-        font-size: 3.8rem;
+        font-size: 3.5rem;
         color: #ffffff !important;
         margin-top: 45px;
-        margin-bottom: 20px;
+        margin-bottom: 35px;
         text-align: center;
         animation: neonPulse 2s ease-in-out infinite alternate;
     }
@@ -108,7 +95,7 @@ st.markdown("""
         to { text-shadow: 0 0 15px #fff, 0 0 30px #ff73b9, 0 0 55px #ff73b9, 0 0 70px #70d5ff; }
     }
 
-    /* Streamlit Custom Primary Buttons */
+    /* Streamlit Custom Buttons for Media Control */
     .stButton>button {
         background: linear-gradient(90deg, #ec4899, #f43f5e) !important;
         color: white !important;
@@ -159,17 +146,14 @@ except FileNotFoundError:
     st.markdown('<div style="font-size: 4.5rem; padding: 10px 0;">💖</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- 📖 START OF ULTRA-PREMIUM DIGITAL DIARY CASING ---
-st.markdown('<div class="premium-diary-block">', unsafe_allow_html=True)
-
-# Dream Focused Cursive Quote Saja Hua Box me
+# --- Dream Focused Cursive Quote ---
 st.markdown('<p class="premium-quote">"The magic happens when a brilliant intellect dares to dream. Keep shining, because the stars are waiting for you."</p>', unsafe_allow_html=True)
 
-st.markdown('<hr style="border-color: rgba(251, 191, 36, 0.3); margin: 30px 0;">', unsafe_allow_html=True)
+st.markdown('<hr style="border-color: rgba(56, 189, 248, 0.4); margin: 35px 0;">', unsafe_allow_html=True)
 
-# --- Emotional, Deep Friendship & Full Separation Pain Narrative Text Matrix ---
+# --- Emotional, Deep Friendship & Full Separation Pain Narrative Block ---
 st.markdown("""
-<div style="font-family: 'Montserrat', sans-serif; font-size: 1.15rem; line-height: 1.9; text-align: center; color: #ffffff; padding: 0 5px;">
+<div style="font-family: 'Montserrat', sans-serif; font-size: 1.15rem; line-height: 1.9; text-align: center; color: #ffffff; padding: 0 10px;">
     Teaching you for the last <span style="color: #fbbf24; font-weight: 700;">2 beautiful years</span> has been the most profound privilege of my life. 
     What started as a journey of mentor and student slowly grew into a <span style="color: #38bdf8; font-weight: 700;">beautiful, irreplaceable friendship</span>. 
     True friendship is not about being inseparable, it is about being separated and knowing nothing changes. 
@@ -179,15 +163,11 @@ st.markdown("""
     You became the rhythm to my silence and the secret sparkle in my ordinary days. 
     <br><br>
     But life took a turn, and after those two beautiful years, our paths branched apart. Your going away and our separation was incredibly painful—it felt like a devastating emotional collapse that left a massive psychological damage in my life during those days. 
-    <br><br>
     <span style="color: #38bdf8; font-weight: 700;">Even today, whenever I look back at those fleeting moments and revisit our gone by yesterday, that very memory reopens the depth of that psychological pain. It makes me relive the exact weight of that damage, leaving my heart deeply heavy and melancholic.</span> The silence left behind by your absence became an unbearable weight to carry, marking a phase of deep emotional struggle.
     <br><br>
     Yet, no matter how far apart we are or how much it hurts, your potential remains limitless. Wherever your dreams take you, remember that you have someone who always believes in you, cares for you, and holds your memory close in every single thought.
 </div>
 """, unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
-# --- 📖 END OF DIGITAL DIARY CASING ---
 
 # 🚀 FIXED CONTINUOUS NEON TEXT AT THE ABSOLUTE BOTTOM
 st.markdown('<div class="slow-reveal">Happy Birthday Anshika</div>', unsafe_allow_html=True)
