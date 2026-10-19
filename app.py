@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. Smooth RGB Light Changing Background & Ultra Visible Fonts (CSS Injector)
+# 2. Advanced Multi-Color Light Changing Background & Ultra Visible Fonts (CSS Injector)
 st.markdown("""
 <style>
     @import url('https://googleapis.com');
@@ -32,7 +32,7 @@ st.markdown("""
         animation: romanticGlowBackground 12s ease-in-out infinite;
         color: #ffffff !important;
         background-size: 400% 400%;
-        overflow-y: auto !important;
+        overflow-y: auto !important; /* Force standard scrolling completely free */
     }
     
     /* Elegant Frame for Permanent Photo */
@@ -89,7 +89,7 @@ st.markdown("""
         text-align: center;
     }
     
-    /* 🚀 Glowing Visibility for the bottom text */
+    /* Bright neon text at the absolute bottom */
     .slow-reveal {
         font-family: 'Montserrat', sans-serif;
         font-weight: 800;
@@ -101,34 +101,52 @@ st.markdown("""
         letter-spacing: 4px;
         text-align: center;
     }
+
+    /* Target Streamlit's internal audio player wrapper to remove dark blocks */
+    div[data-testid="stAudio"] {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
     
-    /* Clean UI Overrides */
+    /* Hide default elements cleanly */
     .stDeployButton, footer, header {
         visibility: hidden !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# 3. Smart Non-Blocking Autoplay Audio Engine (Fixes Black Box & Mute Block)
+# 3. Clean Autoplay Execution Context (Fixes Screen Freeze)
 def play_system_audio(file_path):
     try:
         with open(file_path, "rb") as f:
             data = f.read()
             b64 = base64.b64encode(data).decode()
-            # Click overlay that DOES NOT freeze the screen scroll
+            # Injected native standard audio player completely hidden
             audio_html = f"""
-                <div id="sound-trigger" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999; pointer-events:auto; cursor:pointer;" onclick="document.getElementById('bg-audio').play(); this.style.pointerEvents='none'; this.style.display='none';">
-                    <p style="color:#ffffff; text-align:center; font-family:sans-serif; background:rgba(236,72,153,0.8); padding:8px; font-size:13px; font-weight:bold; box-shadow:0 4px 15px rgba(0,0,0,0.3);">✨ Tap anywhere on the screen once to activate music experience ✨</p>
-                </div>
-                <audio id="bg-audio" loop style="display:none;">
+                <audio autoplay="true" loop="true" style="display:none;" id="bg-audio-engine">
                 <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
                 </audio>
+                <script>
+                    window.addEventListener('click', function() {{
+                        var audio = document.getElementById('bg-audio-engine');
+                        if (audio) {{
+                            audio.play();
+                        }}
+                    }}, {{ once: true }});
+                    window.addEventListener('touchstart', function() {{
+                        var audio = document.getElementById('bg-audio-engine');
+                        if (audio) {{
+                            audio.play();
+                        }}
+                    }}, {{ once: true }});
+                </script>
                 """
             st.markdown(audio_html, unsafe_allow_html=True)
     except FileNotFoundError:
         pass
 
-# Executing using your repository sound file
+# Executing using your exact repository sound file
 play_system_audio("nastelbom-happy-birthday-49526.mp3")
 
 # 4. Premium Live FX Modules
@@ -150,7 +168,7 @@ except FileNotFoundError:
     st.markdown('<div style="font-size: 4.5rem; padding: 10px 0;">💖</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Premium Quotes Curation Matrix ---
+# --- Premium Quotes Matrix ---
 st.markdown('<p class="premium-quote">"The future belongs to those who believe in the beauty of their dreams."</p>', unsafe_allow_html=True)
 st.markdown('<p class="author-tag">— Eleanor Roosevelt</p>', unsafe_allow_html=True)
 
@@ -167,7 +185,7 @@ relentless dedication, and unwavering curiosity. Your potential is absolutely li
 </div>
 """, unsafe_allow_html=True)
 
-# 🚀 CRITICAL FIX: Bright neon animated text at the absolute bottom
+# 🚀 Bright neon animated text at the absolute bottom
 st.markdown('<div class="slow-reveal">H A P P Y &nbsp; B I R T H D A Y &nbsp; A N S H I K A</div>', unsafe_allow_html=True)
 
 # Footer Layout
